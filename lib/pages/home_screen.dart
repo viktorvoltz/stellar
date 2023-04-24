@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -20,7 +22,9 @@ class HomeScreen extends StatelessWidget {
           child: const Text("_event"),
           onPressed: () async {
             String mnemonic = await stellarClient.mnemonic();
-            print(mnemonic);
+            String sseed = stellarClient.secretSeed();
+            log(mnemonic);
+            log(sseed);
           },
         ),
       ),
