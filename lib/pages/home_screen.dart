@@ -10,6 +10,7 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   StellarClient stellarClient = StellarClient();
+  String? mnemonic;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +22,9 @@ class HomeScreen extends StatelessWidget {
         child: ElevatedButton(
           child: const Text("_event"),
           onPressed: () async {
-            String mnemonic = await stellarClient.mnemonic();
+            mnemonic = await stellarClient.mnemonic();
             String sseed = stellarClient.secretSeed();
-            log(mnemonic);
+            log(mnemonic?? "no mnemonic");
             log(sseed);
           },
         ),
